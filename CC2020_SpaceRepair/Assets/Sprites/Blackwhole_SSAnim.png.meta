@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: a1da1955666050944860563cd41f60d0
+guid: 7b9972dd382f05d4798a897685ffeb40
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6888708756529517008
-    second: PlayerSpriteSheet_0
+      213: 6929938418556681950
+    second: Blackwhole_SSAnim_0
   - first:
-      213: 2788089956977029842
-    second: PlayerSpriteSheet_1
+      213: 4026602899671752594
+    second: Blackwhole_SSAnim_1
   - first:
-      213: -8744409789289659004
-    second: PlayerSpriteSheet_2
+      213: -5154560457412241825
+    second: Blackwhole_SSAnim_2
   - first:
-      213: 5399228094500936495
-    second: PlayerSpriteSheet_3
+      213: -8007797716486179652
+    second: Blackwhole_SSAnim_3
   - first:
-      213: -9219114279707902762
-    second: PlayerSpriteSheet_4
-  - first:
-      213: 1866080321450298439
-    second: PlayerSpriteSheet_5
-  - first:
-      213: -952354761598706838
-    second: PlayerSpriteSheet_0
+      213: 6712796344573201172
+    second: Blackwhole_SSAnim_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -68,7 +62,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -107,127 +101,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSpriteSheet_1
+      name: Blackwhole_SSAnim_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 513
-        width: 123
-        height: 113
+        x: 2
+        y: 0
+        width: 126
+        height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d2337f3b0941b620800000000000000
-      internalID: 2788089956977029842
+      spriteID: ede376976461c2060800000000000000
+      internalID: 6929938418556681950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_2
+      name: Blackwhole_SSAnim_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 388
-        width: 124
-        height: 114
+        x: 139
+        y: 3
+        width: 116
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48501f260ad95a680800000000000000
-      internalID: -8744409789289659004
+      spriteID: 29f1e7ed00e51e730800000000000000
+      internalID: 4026602899671752594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_3
+      name: Blackwhole_SSAnim_2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 257
-        width: 124
-        height: 113
+        x: 266
+        y: 5
+        width: 115
+        height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2b990a7859edea40800000000000000
-      internalID: 5399228094500936495
+      spriteID: f561ba2f2925778b0800000000000000
+      internalID: -5154560457412241825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_4
+      name: Blackwhole_SSAnim_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 137
-        width: 123
-        height: 109
+        x: 389
+        y: 0
+        width: 120
+        height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc774658602f0080800000000000000
-      internalID: -9219114279707902762
+      spriteID: cb438ab67669ed090800000000000000
+      internalID: -8007797716486179652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_5
+      name: Blackwhole_SSAnim_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 21
-        width: 122
-        height: 97
+        x: 515
+        y: 1
+        width: 119
+        height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c446a5a26a5e910800000000000000
-      internalID: 1866080321450298439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 649
-        width: 121
-        height: 109
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6bd1ced36e88c2f0800000000000000
-      internalID: -952354761598706838
+      spriteID: 41b83df95b4a82d50800000000000000
+      internalID: 6712796344573201172
       vertices: []
       indices: 
       edges: []

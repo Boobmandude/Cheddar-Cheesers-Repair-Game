@@ -43,7 +43,18 @@ public class BlackHolesScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         playercontroler bird = collision.gameObject.GetComponent<playercontroler>();
-        bird.blackHoleInteraction(playerRigidBody.position); //call the interaction and send the position to the bird
+        try
+        {
+            if (playerRigidBody.position != null)
+            {
+                bird.blackHoleInteraction(playerRigidBody.position); //call the interaction and send the position to the bird
+            }
+        }
+        catch
+        {
+
+        }
+        
         destroyBH = true;
     }
 }

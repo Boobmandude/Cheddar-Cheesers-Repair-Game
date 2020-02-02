@@ -32,8 +32,6 @@ public class playercontroler : MonoBehaviour
     {
         if (!blackHoleActivated && blackHoleTime > blackHoleCooldown)
         {
-            //float xForce = 0f;
-            //float yForce = 0f;
             float rotationBody = 0;
             Vector2 forces = new Vector2();
             float xInput = Input.GetAxis("Horizontal");
@@ -47,15 +45,10 @@ public class playercontroler : MonoBehaviour
             if (yInput != 0)
             {
                 rotationBody = playerRigidBody.rotation * Mathf.PI / 180;
-                Debug.Log("Angle is: " + rotationBody);
                 forces = new Vector2(Mathf.Cos(rotationBody), Mathf.Sin(rotationBody));
-                Debug.Log("Forces is: " + forces);
-                //xForce = xInput * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
-                //yForce = yInput * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
                 if (yInput > 0)
                     forces = -forces * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
                 else forces = forces * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
-                //forces = new Vector2(xForce, yForce);
 
                 playerRigidBody.AddForce(forces);
             }
@@ -67,8 +60,6 @@ public class playercontroler : MonoBehaviour
         }
         else
         {
-            //Vector2 forces = new Vector2(0f, 0f);
-            //Vector2 posBH = GameObject.Find("BlackHoles").transform.position;
             Vector2 posC = playerRigidBody.position;
             Vector2 forces = posBlackHole - posC;
 

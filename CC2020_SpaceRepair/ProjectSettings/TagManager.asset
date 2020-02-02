@@ -10,6 +10,7 @@ TagManager:
   - ShootingStar
   - MotherShip
   - RefuelStation
+  - Satalite
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3128138741
     locked: 0
   - name: BlackHoleBottom
     uniqueID: 2051938099

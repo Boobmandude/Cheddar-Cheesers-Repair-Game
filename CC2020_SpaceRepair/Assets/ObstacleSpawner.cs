@@ -31,7 +31,6 @@ public class ObstacleSpawner : MonoBehaviour
 		{
 			if (nextSpawnTime < Time.time)
 			{
-				Spawn();
 				nextSpawnTime = Time.time + spawnTime;
 			}
 		}
@@ -48,12 +47,7 @@ public class ObstacleSpawner : MonoBehaviour
 		}
 	}
 
-	public void Spawn()
-	{
-		rNum = Random.Range(0, 3);
-		spawnV3 = new Vector3(spawner[rNum].transform.position.x, spawner[rNum].transform.position.y, spawner[rNum].transform.position.z);
-		Instantiate(fish, spawnV3, Quaternion.identity);
-	}
+	
 
 	void MassAdd()
 	{

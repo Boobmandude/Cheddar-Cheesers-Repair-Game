@@ -38,7 +38,7 @@ public class PauseMenuScript : MonoBehaviour
     public void Menu()
     {
         
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
         Resume();
 
 
@@ -49,7 +49,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         Resume();
     }
 }

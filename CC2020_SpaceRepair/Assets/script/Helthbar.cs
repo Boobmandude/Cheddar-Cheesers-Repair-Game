@@ -7,6 +7,16 @@ public class Helthbar : MonoBehaviour
     public float CurrentHealth { get; set; }
     public float maxHealth { get; set; }
     public UnityEngine.UI.Slider healthBar;
+    float obstacleDamage;
+
+    public GameObject Satalite;
+    public GameObject Meteor;
+    public GameObject ShootingStar;
+    public GameObject Ship;
+    public GameObject SmallMeteor;
+
+    public GameObject RefuilStation;
+    public GameObject ReleaseStation;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +34,10 @@ public class Helthbar : MonoBehaviour
         { 
                 healthBar.value += 100;
         }
-        else
+        else if (other.gameObject.tag == "DoesDamage")
         {
+
+           // obstacleDamage = other.gameObject.GetComponent<>();
             healthBar.value -= 5;
         }
     }

@@ -6,7 +6,9 @@ public class BlackHolesScript : MonoBehaviour
 {
     private bool destroyBH = false;
     private float blackHoleCooldown = 2f;
+    private float blackHoleCooldownLive = 4f;
     private float blackHoleTime = 0f;
+    private float blackHoleTimeLive = 0f;
     private Rigidbody2D playerRigidBody;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,12 @@ public class BlackHolesScript : MonoBehaviour
             blackHoleTime += Time.deltaTime;
             if (blackHoleTime > blackHoleCooldown) Destroy(gameObject);
         }
+        else
+        {
+            blackHoleTimeLive += Time.deltaTime;
+            if (blackHoleTimeLive > blackHoleCooldownLive) Destroy(gameObject);
+        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

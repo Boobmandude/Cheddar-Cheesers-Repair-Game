@@ -11,6 +11,7 @@ TagManager:
   - MotherShip
   - RefuelStation
   - Satalite
+  - DoesDamage
   layers:
   - Default
   - TransparentFX

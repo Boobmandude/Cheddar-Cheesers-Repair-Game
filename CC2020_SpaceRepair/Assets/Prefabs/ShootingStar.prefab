@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1623703933}
   m_Layer: 0
   m_Name: ShootingStar
-  m_TagString: ShootingStar
+  m_TagString: DoesDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   sataliteSpeed: 0
   sataliteDamage: 0
   sataliteSpeedMultiplier: 0
+  obsatcleDamage: 0
 --- !u!1 &9090076631094417896
 GameObject:
   m_ObjectHideFlags: 0

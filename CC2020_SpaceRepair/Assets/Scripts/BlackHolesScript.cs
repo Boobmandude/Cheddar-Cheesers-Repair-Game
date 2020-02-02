@@ -22,16 +22,24 @@ public class BlackHolesScript : MonoBehaviour
         if (destroyBH) //if there is collition, we wait blackholecooldown to destroy the black hole.
         {
             blackHoleTime += Time.deltaTime;
-            if (blackHoleTime > blackHoleCooldown) Destroy(gameObject);
+            if (blackHoleTime > blackHoleCooldown)
+            {
+                Destroy(gameObject);
+                destroyBH = false;
+            }
+
         }
         else
         {
             blackHoleTimeLive += Time.deltaTime;
-            if (blackHoleTimeLive > blackHoleCooldownLive) Destroy(gameObject);
-        }
-        
-    }
+            if (blackHoleTimeLive > blackHoleCooldownLive)
+            {
+                Destroy(gameObject);
+                destroyBH = false;
+            }
 
+        }
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         playercontroler bird = collision.gameObject.GetComponent<playercontroler>();

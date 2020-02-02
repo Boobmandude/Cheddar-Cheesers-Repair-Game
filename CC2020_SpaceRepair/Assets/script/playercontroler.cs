@@ -14,7 +14,8 @@ public class playercontroler : MonoBehaviour
     private float blackHoleTime = 3f;
     private Vector2 posBlackHole;
 
-
+    public float repairFuelMax;
+    public float repairFuelCurrent;
 
     void Awake()
     {
@@ -80,6 +81,22 @@ public class playercontroler : MonoBehaviour
             Debug.Log("BLACKHOLEEEE");
             blackHoleActivated = true;
         }
+    }
+    public float subtractFuel(float damageTaken)
+    {
+
+        repairFuelCurrent = repairFuelCurrent - damageTaken;
+        print(repairFuelCurrent);
+        return repairFuelCurrent;
+    }
+
+    public float addFuel(float addedvalue)
+    {
+
+        repairFuelCurrent = repairFuelCurrent + addedvalue;
+        print("HIGH" + repairFuelCurrent);
+        return repairFuelCurrent;
+
     }
 
 }

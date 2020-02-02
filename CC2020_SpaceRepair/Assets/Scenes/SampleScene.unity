@@ -699,7 +699,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.1477685
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1257,6 +1257,8 @@ MonoBehaviour:
   playerSpeed: 1
   SPEEDBLACKHOLE: 500
   ROTATIONSPEED: 5
+  repairFuelMax: 100
+  repairFuelCurrent: 25
 --- !u!95 &812210049
 Animator:
   serializedVersion: 3
@@ -1843,7 +1845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2e922a407190448476fb90e977dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 400
+  maxHealth: 200
+  spriteR: {fileID: 1040727341}
   sprites:
   - {fileID: -8867020112483544971, guid: b1957edd7f9991840ab90518122249b9, type: 3}
   - {fileID: -7906038436278658177, guid: b1957edd7f9991840ab90518122249b9, type: 3}
@@ -1858,7 +1861,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2397,6 +2400,7 @@ GameObject:
   - component: {fileID: 1388576551}
   - component: {fileID: 1388576550}
   - component: {fileID: 1388576549}
+  - component: {fileID: 1388576552}
   m_Layer: 0
   m_Name: Planet_SS_0
   m_TagString: Untagged
@@ -2485,6 +2489,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1388576552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388576548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab3a03e7af527b478135374ea19521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512877037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,7 +2603,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: 3
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2616,7 +2632,7 @@ MonoBehaviour:
     spaceCount: 0
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

@@ -8,7 +8,7 @@ public class TimeCountdownScript : MonoBehaviour
 {
     TextMeshProUGUI textCoundown;
     private float timeCounter = 0;
-    private int countDown = 30;
+    private int countDown = 60;
     private int counter = 1;
     private string timeShowString;
     void Start()

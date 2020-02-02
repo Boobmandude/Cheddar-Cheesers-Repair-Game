@@ -31,14 +31,20 @@ public class Helthbar : MonoBehaviour
     {
         Debug.Log("Triggered");
         if (other.gameObject.tag == "Refuel")
-        { 
-                healthBar.value += 100;
+        {
+            playercontroler repairFuel = other.gameObject.GetComponent<playercontroler>();
+            healthBar.value += repairFuel.addFuel(repairFuel.repairFuelMax);
         }
         else if (other.gameObject.tag == "DoesDamage")
         {
 
-           // obstacleDamage = other.gameObject.GetComponent<>();
+            // obstacleDamage = other.gameObject.GetComponent<>();
             healthBar.value -= 5;
+        }
+        else if (other.gameObject.tag == "Mothership") {
+
+            healthBar.value = 0;
+
         }
     }
 

@@ -1,43 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MotherShipController : MonoBehaviour
 {
-
     public float maxHealth;
     float currentHealth;
-    private SpriteRenderer spriteR;
+    public SpriteRenderer spriteR;
     public Sprite[] sprites;
+    float addingHealth;
+
     // Start is called before the first frame update
     void Start()
     {
-        //currentHealth = maxHealth / 4;
-        //print(currentHealth);
+        currentHealth = 5;
+        print(currentHealth);
 
-        //gameObject.GetComponent<SpriteRenderer>().sprite = sprites[3];
-        ////sprites = Resources.LoadAll<Sprite>(Mothersheet_0,Mothersheet_1,Mothersheet_2);
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[3];
+
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
 
+        if (collision.gameObject.tag == "Player")
+        {
+
+            playercontroler repairFuel = collision.gameObject.GetComponent<playercontroler>();
+
+            currentHealth += repairFuel.subtractFuel(repairFuel.repairFuelMax);
+
+           // Helthbar helthbar = helthbar.gameObject.Get<Helthbar>;
+
+         
+
+            print("You win");
+
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
-        //while (currentHealth <= 40) {
+        if (currentHealth <= 40)
+        {
 
-        //    spriteR.sprite = sprites[0];
+            spriteR.sprite = sprites[0];
 
-        //}
-        //while (currentHealth >= 50)
-        //{
+        }
+        if (currentHealth >= 50)
+        {
 
-        //    spriteR.sprite = sprites[1];
+            spriteR.sprite = sprites[1];
 
-        //}
-        //while(currentHealth >= 80)
-        //{
+        }
+        if (currentHealth >= 100)
+        {
 
-        //    spriteR.sprite = sprites[2];
+            spriteR.sprite = sprites[2];
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
-        //}
+        }
+
+        //this is where win condition
+        if (currentHealth >= maxHealth)
+        {
+
+
+
+        }
     }
 }

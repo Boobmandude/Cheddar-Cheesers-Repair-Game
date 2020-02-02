@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BlackHolesScript : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class BlackHolesScript : MonoBehaviour
             blackHoleTime += Time.deltaTime;
             if (blackHoleTime > blackHoleCooldown)
             {
+                //FadeImage(true);
                 Destroy(gameObject);
                 destroyBH = false;
             }
@@ -34,6 +36,7 @@ public class BlackHolesScript : MonoBehaviour
             blackHoleTimeLive += Time.deltaTime;
             if (blackHoleTimeLive > blackHoleCooldownLive)
             {
+                //FadeImage(true);
                 Destroy(gameObject);
                 destroyBH = false;
             }
@@ -57,4 +60,32 @@ public class BlackHolesScript : MonoBehaviour
         
         destroyBH = true;
     }
+
+    //public Image img;
+
+    // public IEnumerator FadeImage(bool fadeAway)
+    //{
+    //    // fade from opaque to transparent
+    //    if (fadeAway)
+    //    {
+    //        // loop over 1 second backwards
+    //        for (float i = 1; i >= 0; i -= Time.deltaTime)
+    //        {
+    //            // set color with i as alpha
+    //            img.color = new Color(1, 1, 1, i);
+    //            yield return null;
+    //        }
+    //    }
+    //    // fade from transparent to opaque
+    //    else
+    //    {
+    //        // loop over 1 second
+    //        for (float i = 0; i <= 1; i += Time.deltaTime)
+    //        {
+    //            // set color with i as alpha
+    //            img.color = new Color(1, 1, 1, i);
+    //            yield return null;
+    //        }
+    //    }
+    //}
 }

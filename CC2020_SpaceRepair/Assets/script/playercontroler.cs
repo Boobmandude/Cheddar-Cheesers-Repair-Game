@@ -1,72 +1,94 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody2D))]
 public class playercontroler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float speed = 5f;
-    private float movimenty = 0f, movimentx = 0f;
-    public float scale=1f;
-    private Rigidbody2D rigidBody;
-    void Start()
+    private Rigidbody2D playerRigidBody;
+    public float playerSpeed = 1f; //you can change this in the interface
+    private readonly float SPEEDCONSTANT = 1000f; //constant velocity multiplyer
+    public float SPEEDBLACKHOLE = 500f;
+    public float ROTATIONSPEED = 5f;
+    private bool blackHoleActivated = false;
+    private float blackHoleCooldown = 2f;
+    private float blackHoleTime = 3f;
+    private Vector2 posBlackHole;
+
+
+
+    void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>(); //needed everytime to get the rigidbody2d components and mofify them
+        playerRigidBody.drag = 5;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if ( Input.GetKey(KeyCode.RightArrow))
-        {
-            rigidBody.velocity = new Vector2(movimentx * speed, rigidBody.velocity.y);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rigidBody.velocity = -transform.forward * speed;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-           transform.Rotate(new Vector3(0,0,1)* Time.deltaTime * speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * speed, Space.World);
-        }
-        //movimenty = Input.GetAxis("Vertical");
-        //movimentx = Input.GetAxis("Horizontal");
+        blackHoleTime += Time.deltaTime;
+        InputAxis(); // calling the function that we created;
+    }
 
-        //if (movimenty > 0 || movimentx > 0)
-        //{            
-        //    rigidBody.velocity = new Vector2(movimentx * speed, rigidBody.velocity.y);
-        //    rigidBody.velocity = new Vector2(rigidBody.velocity.x, movimenty * speed);
-        //    if (movimentx > 0)
-        //    {
-        //        transform.localScale = new Vector2(-scale, scale);
-        //        rigidBody.AddRelativeForce(speed *10* Vector2.right);
-        //    }
-        //    if (movimenty > 0)
-        //    {
-        //        rigidBody.AddRelativeForce(speed *10* Vector2.up);
-        //    }
+    public void InputAxis()
+    {
+        if (!blackHoleActivated && blackHoleTime > blackHoleCooldown)
+        {
+            //float xForce = 0f;
+            //float yForce = 0f;
+            float rotationBody = 0;
+            Vector2 forces = new Vector2();
+            float xInput = Input.GetAxis("Horizontal");
+            if (xInput != 0)
+            {
+                if (xInput > 0)
+                    transform.Rotate(0, 0, -ROTATIONSPEED);
+                else transform.Rotate(0, 0, ROTATIONSPEED);
+            }
+            float yInput = Input.GetAxis("Vertical");
+            if (yInput != 0)
+            {
+                rotationBody = playerRigidBody.rotation * Mathf.PI / 180;
+                Debug.Log("Angle is: " + rotationBody);
+                forces = new Vector2(Mathf.Cos(rotationBody), Mathf.Sin(rotationBody));
+                Debug.Log("Forces is: " + forces);
+                //xForce = xInput * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
+                //yForce = yInput * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
+                if (yInput > 0)
+                    forces = -forces * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
+                else forces = forces * SPEEDCONSTANT * playerSpeed * Time.deltaTime;
+                //forces = new Vector2(xForce, yForce);
 
-        //}
-        //if (movimenty < 0 || movimentx < 0)
-        //{           
-        //    rigidBody.velocity = new Vector3(movimentx * speed, rigidBody.velocity.y);          
-        //    rigidBody.velocity = new Vector2(rigidBody.velocity.x, movimenty * speed);
-        //    if (movimentx < 0)
-        //    {
-        //        transform.localScale = new Vector2(scale, scale);
-        //        rigidBody.AddRelativeForce(speed *10* Vector2.left);
-        //    }
-        //    if (movimenty < 0)
-        //    {
-        //        rigidBody.AddRelativeForce(speed *10* Vector2.down);
-        //    }
+                playerRigidBody.AddForce(forces);
+            }
 
-        //  }
 
-    }  
-    
+
+
+
+        }
+        else
+        {
+            //Vector2 forces = new Vector2(0f, 0f);
+            //Vector2 posBH = GameObject.Find("BlackHoles").transform.position;
+            Vector2 posC = playerRigidBody.position;
+            Vector2 forces = posBlackHole - posC;
+
+            forces = forces.normalized; // vector normalized.
+            forces = forces * SPEEDBLACKHOLE * Time.deltaTime;
+            playerRigidBody.AddForce(forces);
+            blackHoleActivated = false;
+            Debug.Log("SUCKING...");
+        }
+
+    }
+    public void blackHoleInteraction(Vector2 vec)
+    {
+        posBlackHole = vec;
+        if (blackHoleTime > blackHoleCooldown)
+        {
+            blackHoleTime = 0f;
+            Debug.Log("BLACKHOLEEEE");
+            blackHoleActivated = true;
+        }
+    }
+
 }
